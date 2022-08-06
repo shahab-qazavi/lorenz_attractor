@@ -60,7 +60,8 @@ class LorenzAttractor:
             # set point-of-view: specified by (altitude degrees, azimuth degrees)
             self.ax.view_init(30, 0)
         except:
-            raise ValueError(f'{DetailException.get_exception_details()}')
+            raise ValueError(f'Wrong occurred in Prepare Variable, ErrorMessage is :'
+                             f' {DetailException.get_exception_details()}')
 
     # initialization function: plot the background of each frame
     def init(self):
@@ -73,7 +74,8 @@ class LorenzAttractor:
                 pt.set_3d_properties([])
             return self.lines + self.pts
         except:
-            raise AssertionError(f'{DetailException.get_exception_details()}')
+            raise AssertionError(f'Wrong occurred in initialization ErrorMessage is : '
+                                 f'{DetailException.get_exception_details()}')
 
     # animation function.  This will be called sequentially with the frame number
     def animate(self, i):
@@ -93,7 +95,8 @@ class LorenzAttractor:
             self.fig.canvas.draw()
             return self.lines + self.pts
         except:
-            raise AssertionError(f'{DetailException.get_exception_details()}')
+            raise AssertionError(f'Wrong occurred in animating, ErrorMessage is : '
+                                 f'{DetailException.get_exception_details()}')
 
     def prepare_animating(self):
         self.prepare_var()
@@ -108,7 +111,8 @@ class LorenzAttractor:
         try:
             self.anim.save('lorentz_attractor.mp4', fps=15, extra_args=['-vcodec', 'libx264'])
         except:
-            raise AssertionError(f'{DetailException.get_exception_details()}')
+            raise AssertionError(f'Wrong occurred in saving file, ErrorMessage is : '
+                                 f'{DetailException.get_exception_details()}')
 
     def draw(self):
         self.prepare_animating()
@@ -117,7 +121,8 @@ class LorenzAttractor:
             mng.full_screen_toggle()
             plt.show()
         except:
-            raise AssertionError(f'{DetailException.get_exception_details()}')
+            raise AssertionError(f'Wrong occurred in drawing, ErrorMessage is : '
+                                 f'{DetailException.get_exception_details()}')
 
 
 if __name__ == '__main__':
