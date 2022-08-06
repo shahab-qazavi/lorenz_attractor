@@ -88,6 +88,8 @@ class LorenzAttractor:
                 line.set_data(x, y)
                 line.set_3d_properties(z)
 
+                """ I commented these few lines in below because I don't want to show the points,
+                    If you want to show the points uncomment it."""
                 # pt.set_data(x[-1:], y[-1:])
                 # pt.set_3d_properties(z[-1:])
 
