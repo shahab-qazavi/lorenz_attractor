@@ -34,7 +34,7 @@ class LorenzAttractor:
             x0 = -15 + 30 * np.random.random((self.N_trajectories, 3))
 
             # Solve for the trajectories
-            t = np.linspace(0, 10, 5000)
+            t = np.linspace(0, 30, 5500)
             self.x_t = np.asarray([integrate.odeint(self.lorentz_derivative, x0i, t)
                                    for x0i in x0])
 
@@ -81,7 +81,7 @@ class LorenzAttractor:
     def animate(self, i):
         try:
             # we'll step two time-steps per frame.  This leads to nice results.
-            i = (5 * i) % self.x_t.shape[1]
+            i = (4 * i) % self.x_t.shape[1]
 
             for line, pt, xi in zip(self.lines, self.pts, self.x_t):
                 x, y, z = xi[:i].T
@@ -105,7 +105,7 @@ class LorenzAttractor:
 
         # instantiate the animator.
         self.anim = animation.FuncAnimation(self.fig, self.animate, init_func=self.init,
-                                            frames=2000, interval=30, blit=True)
+                                            frames=4000, interval=30, blit=True)
 
     def save_file(self):
         self.prepare_animating()
